@@ -17,6 +17,5 @@ public class CheckoutController {
     @GetMapping("/")
     public ResponseEntity<ApiResponse> checkout(HttpServletRequest request)
     {
-
     }
 }

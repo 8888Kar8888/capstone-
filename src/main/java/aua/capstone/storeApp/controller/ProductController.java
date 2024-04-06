@@ -9,20 +9,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/product")
-public class ProductController {
-
-
+public class ProductController
+{
     // get all products
     @GetMapping("/")
     public ResponseEntity<List<Product>> all()
     {
-
     }
 
     // get product by id
     @GetMapping("/{id}")
     public ResponseEntity<Product> getById(@PathVariable Integer id)
     {
-
     }
 }
