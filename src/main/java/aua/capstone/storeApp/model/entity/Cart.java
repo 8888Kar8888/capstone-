@@ -3,9 +3,8 @@ package aua.capstone.storeApp.model.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "cart")
-public class Cart
-{
+@Table(name = "CART")
+public class Cart {
     @Id
     @GeneratedValue
     private Integer id;
@@ -20,48 +19,37 @@ public class Cart
 
     private int quantity;
 
-    public Cart()
-    {
+    public Cart() {}
 
-    }
-
-    public Integer getId()
-    {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id)
-    {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public Product getProduct()
-    {
+    public Product getProduct() {
         return product;
     }
 
-    public void setProduct(Product product)
-    {
+    public void setProduct(Product product) {
         this.product = product;
     }
 
-    public Customer getCustomer()
-    {
+    public Customer getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer)
-    {
+    public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
-    public int getQuantity()
-    {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity)
-    {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 }

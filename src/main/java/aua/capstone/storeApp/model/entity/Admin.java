@@ -28,11 +28,9 @@ public class Admin {
     private Set<String> roles = new HashSet<>();
 
     public Admin() {
-        // Initialize an admin with a default role.
         this.roles.add("ROLE_ADMIN");
     }
 
-    // Getters and Setters
     public Integer getId() {
         return id;
     }
@@ -73,7 +71,6 @@ public class Admin {
         this.roles = roles;
     }
 
-    // Additional methods
     public void addRole(String role) {
         this.roles.add(role);
     }

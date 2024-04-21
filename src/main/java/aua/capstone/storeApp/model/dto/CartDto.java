@@ -2,32 +2,25 @@ package aua.capstone.storeApp.model.dto;
 
 import java.util.List;
 
-public class CartDto {
+public class CartDto {  // For showing cart's products.
     private List<CartItemDto> cartItemList;
     private double totalCost;
 
-    public CartDto()
-    {
+    public CartDto() {}
 
-    }
-
-    public List<CartItemDto> getCartItemList()
-    {
+    public List<CartItemDto> getCartItemList() {
         return cartItemList;
     }
 
-    public void setCartItemList(List<CartItemDto> cartItemList)
-    {
+    public void setCartItemList(List<CartItemDto> cartItemList) {
         this.cartItemList = cartItemList;
     }
 
-    public double getTotalCost()
-    {
+    public double getTotalCost() {
         return totalCost;
     }
 
-    public void setTotalCost(double totalCost)
-    {
+    public void setTotalCost(double totalCost) {
         this.totalCost = totalCost;
     }
 }

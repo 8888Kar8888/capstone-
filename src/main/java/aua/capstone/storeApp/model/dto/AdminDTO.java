@@ -1,4 +1,4 @@
-package grid.intern.storeApp.model.dto;
+package aua.capstone.storeApp.model.dto;
 
 import java.util.Set;
 
@@ -9,7 +9,7 @@ public class AdminDTO {
     private String email;
     private Set<String> roles;
 
-    // Constructors
+
     public AdminDTO() {}
 
     public AdminDTO(Integer id, String username, String email, Set<String> roles) {
@@ -19,7 +19,6 @@ public class AdminDTO {
         this.roles = roles;
     }
 
-    // Getters and Setters
     public Integer getId() {
         return id;
     }
@@ -52,5 +51,4 @@ public class AdminDTO {
         this.roles = roles;
     }
 
-    // Optional: Override toString(), equals(), and hashCode() methods as needed
 }

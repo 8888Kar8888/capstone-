@@ -5,8 +5,12 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "customer")
-public class Customer {
+@Table(name = "customers")
+public class Customer
+{
+    @Column(name = "is_blocked", nullable = false)
+    private boolean isBlocked = false;
+
     @Id
     @GeneratedValue
     private Integer id;
@@ -48,6 +52,14 @@ public class Customer {
         this.password = password;
     }
 
+    public boolean isBlocked() {
+        return isBlocked;
+    }
+
+    public void setBlocked(boolean blocked) {
+        isBlocked = blocked;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
@@ -58,30 +70,21 @@ public class Customer {
     }
 
 
-
+    @Override
     public boolean equals(Object o) {
-        if (this == o)
-            return true;
-
-        if (o == null || getClass() != o.getClass())
-            return false;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
         Customer customer = (Customer) o;
 
-        return (Objects.equals(id, customer.id)) &&
-                (Objects.equals(email, customer.email));
+        if (!Objects.equals(id, customer.id)) return false;
+        return Objects.equals(email, customer.email);
     }
-
 
     @Override
     public int hashCode() {
-        final int primeMultiplier = 31;
-
         int result = id != null ? id.hashCode() : 0;
-
-        result = primeMultiplier * result + (email != null ? email.hashCode() : 0);
-
+        result = 31 * result + (email != null ? email.hashCode() : 0);
         return result;
     }
-
 }
