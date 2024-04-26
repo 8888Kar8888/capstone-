@@ -19,17 +19,21 @@ public class AdminService {
     private final AdminRepository adminRepository;
 
     @Autowired
-    public AdminService(CustomerRepository customerRepository, AdminRepository adminRepository) {
+    public AdminService(CustomerRepository customerRepository, AdminRepository adminRepository)
+    {
         this.customerRepository = customerRepository;
         this.adminRepository = adminRepository;
     }
 
-    public Admin createAdmin(Admin admin) {
+    public Admin createAdmin(Admin admin)
+    {
         return adminRepository.save(admin);
     }
 
-    public Admin updateAdmin(Integer adminId, Admin updatedAdmin) {
-        return adminRepository.findById(adminId).map(admin -> {
+    public Admin updateAdmin(Integer adminId, Admin updatedAdmin)
+    {
+        return adminRepository.findById(adminId).map(admin ->
+        {
             admin.setUsername(updatedAdmin.getUsername());
             admin.setEmail(updatedAdmin.getEmail());
             admin.setRoles(updatedAdmin.getRoles());
@@ -38,13 +42,16 @@ public class AdminService {
         }).orElseThrow(() -> new EntityNotFoundException("Admin not found with id: " + adminId));
     }
 
-    public void deleteAdmin(Integer adminId) {
+    public void deleteAdmin(Integer adminId)
+    {
         adminRepository.deleteById(adminId);
     }
 
     @Transactional
-    public void blockUser(Integer customerId) {
-        if (customerId == null || customerId <= 0) {
+    public void blockUser(Integer customerId)
+    {
+        if (customerId == null || customerId <= 0)
+        {
             throw new IllegalArgumentException("Invalid customer ID");
         }
         log.info("Attempting to block customer with ID: {}", customerId);
@@ -56,7 +63,8 @@ public class AdminService {
     }
 
     @Transactional
-    public void unblockUser(Integer customerId) {
+    public void unblockUser(Integer customerId)
+    {
         log.info("Attempting to unblock customer with ID: {}", customerId);
         Customer customer = customerRepository.findById(customerId)
                 .orElseThrow(() -> new EntityNotFoundException("Customer not found with id: " + customerId));
